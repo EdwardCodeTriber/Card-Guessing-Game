@@ -6,7 +6,7 @@
 # Backend
 - cd backend
 - npm init -y
-- npm express
+- npm install express
 ## To run
 - node index.js
 # Frontend
