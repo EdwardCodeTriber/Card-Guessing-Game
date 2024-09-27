@@ -11,7 +11,7 @@
 - node index.js
 # Frontend
 - cd frontend
-- npn install @mui/material @emotion/react @emotion/styled @mui/icons-material
+- npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 ## To run 
 - npm run dev
 # About 
