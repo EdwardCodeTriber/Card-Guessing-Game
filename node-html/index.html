@@ -1,0 +1,31 @@
+<!-- Frontend (index.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Guessing Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@mui/material@5.2.3/umd/material.min.css" />
+</head>
+<body>
+  <header>
+    <h1>Card Guessing Game</h1>
+    <button id="resetButton">Reset Game</button>
+  </header>
+
+  <main>
+    <div id="gameGrid" class="grid-container"></div>
+  </main>
+
+  <!-- Modal for Win -->
+  <div id="winModal" class="modal">
+    <div class="modal-content">
+      <h2>Congratulations! You've won the game!</h2>
+      <button id="closeModal">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
