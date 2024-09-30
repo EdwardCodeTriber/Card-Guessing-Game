@@ -61,9 +61,14 @@ const Game = () => {
       justifyContent: 'center', 
       alignItems: 'center'
     }}>
-      <Grid container spacing={2} justifyContent="center" style={{ maxWidth: '80vw', maxHeight: '80vh', gap:'' }}>
+      <Grid 
+        container 
+        spacing={2} 
+        justifyContent="center" 
+        style={{ maxWidth: '80vw', maxHeight: '80vh' }}
+      >
         {cards.map((card) => (
-          <Grid item xs={2} sm={2} md={1} key={card.id}>
+          <Grid item xs={2} sm={2} md={2} key={card.id} style={{ height: '75px', width: '55px' }}>
             <CardComponent
               card={card}
               flipped={flipped.includes(card.id) || matched.includes(card.id)}
