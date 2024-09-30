@@ -52,10 +52,18 @@ const Game = () => {
   }, [matched, cards]);
 
   return (
-    <div style={{backgroundColor:'#334155'}}>
-      <Grid container spacing={2}>
+    <div style={{
+      backgroundColor: '#334155', 
+      height: '100vh', 
+      width: '100vw', 
+      display: 'flex', 
+      flexDirection: 'column', 
+      justifyContent: 'center', 
+      alignItems: 'center'
+    }}>
+      <Grid container spacing={2} justifyContent="center" style={{ maxWidth: '80vw', maxHeight: '80vh', gap:'' }}>
         {cards.map((card) => (
-          <Grid item xs={2} key={card.id}>
+          <Grid item xs={2} sm={2} md={1} key={card.id}>
             <CardComponent
               card={card}
               flipped={flipped.includes(card.id) || matched.includes(card.id)}
