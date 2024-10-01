@@ -1,46 +1,66 @@
 /* (styles.css) */
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-  }
-  
-  .grid-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    justify-items: center;
-    padding: 20px;
-  }
-  
-  .card {
-    width: 100px;
-    height: 150px;
-    background-color: #f3f3f3;
-    border: 2px solid #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: transform 0.3s;
-  }
-  
-  .card.flipped {
-    transform: rotateY(180deg);
-  }
-  
-  .modal {
-    display: none;
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .modal.active {
-    display: block;
-  }
-  
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";  text-align: center;
+  background-image: url('./picture.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.h{
+  color:#f8fafc;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 0.5fr);
+  gap: 5px;
+  justify-items: center;
+  padding: 5px;
+}
+
+.card {
+  width: 85px;
+  height: 85px;
+  background-color: #94a3b8;
+  border: 2px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #bdf85f;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal.active {
+  display: block;
+}
+
+.close{
+  background-color: #f8fafc;
+}
+
+.resetButton {
+  margin-top: 15px;
+  background-color: #fde68a;
+  height: 25px;
+  border-radius: 8px;
+
+}
+
+.resetButton:hover{
+  cursor: pointer;
+}

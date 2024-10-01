@@ -1,4 +1,4 @@
-//  (app.js)
+
 const cards = [];
 let flippedCards = [];
 let matchedPairs = 0;
@@ -40,12 +40,14 @@ function flipCard(card, index) {
     card.textContent = card.dataset.value;
     flippedCards.push({ card, index });
 
+    // If statement to check matched 2 cards that are selected
     if (flippedCards.length === 2) {
       checkMatch();
     }
   }
 }
 
+// Function to match cards
 function checkMatch() {
   const [firstCard, secondCard] = flippedCards;
   if (firstCard.card.dataset.value === secondCard.card.dataset.value) {
@@ -65,6 +67,7 @@ function checkMatch() {
   }
 }
 
+// Reset the game
 function resetGame() {
   matchedPairs = 0;
   flippedCards = [];
