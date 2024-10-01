@@ -1,0 +1,46 @@
+/* (styles.css) */
+body {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+  }
+  
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    justify-items: center;
+    padding: 20px;
+  }
+  
+  .card {
+    width: 100px;
+    height: 150px;
+    background-color: #f3f3f3;
+    border: 2px solid #ccc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  
+  .card.flipped {
+    transform: rotateY(180deg);
+  }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .modal.active {
+    display: block;
+  }
+  
