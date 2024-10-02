@@ -1,22 +1,25 @@
 /* (styles.css) */
 body {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";  text-align: center;
-  background-image: url('./picture.jpg');
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: center;
+  background-image: url("./picture.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
-.h{
-  color:#f8fafc;
+
+.h {
+  color: #f8fafc;
 }
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(6, 0.5fr);
-  gap: 5px;
+  gap: 2px;
   justify-items: center;
   padding: 5px;
 }
-
 .card {
   width: 85px;
   height: 85px;
@@ -31,6 +34,17 @@ body {
 
 .card.flipped {
   transform: rotateY(180deg);
+}
+
+/* inmage adjustment */
+.card img.hidden {
+  display: none;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .modal {
@@ -49,7 +63,7 @@ body {
   display: block;
 }
 
-.close{
+.close {
   background-color: #f8fafc;
 }
 
@@ -58,9 +72,44 @@ body {
   background-color: #fde68a;
   height: 25px;
   border-radius: 8px;
-
 }
 
-.resetButton:hover{
+.resetButton:hover {
   cursor: pointer;
 }
+
+/* Responsive  */
+@media (max-width: 1200px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 0.5fr);
+  }
+}
+
+@media (max-width: 992px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 0.05fr);
+  }
+  .card {
+    width: 50px;
+    height: 50px;
+  }
+}
+
