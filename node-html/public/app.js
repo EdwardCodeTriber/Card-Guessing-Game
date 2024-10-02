@@ -20,7 +20,8 @@ function initializeGame() {
     const card = document.createElement('div');
     card.classList.add('card');
     card.dataset.value = value;
-    card.innerHTML = `<img src="${value}" alt="Card image" class="hidden" />`; // Add an image element
+    // Add an image element
+    card.innerHTML = `<img src="${value}" alt="Card image" class="hidden" />`; 
     card.addEventListener('click', () => flipCard(card, index));
     gameGrid.appendChild(card);
   });
