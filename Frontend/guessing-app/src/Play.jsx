@@ -9,6 +9,7 @@ import {
   Dialog,
   DialogTitle,
   DialogActions,
+  CircularProgress,
 } from "@mui/material";
 import { QuestionMark } from "@mui/icons-material";
 import axios from "axios";
@@ -17,6 +18,8 @@ const Play = () => {
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [matched, setMatched] = useState([]);
+  // Loading opt
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const [win, setWin] = useState(false);
 
   useEffect(() => {
@@ -62,8 +65,48 @@ const Play = () => {
     setMatched([]);
     setWin(false);
   };
-
   
+  // Preload images when cards are fetched
+  useEffect(() => {
+    if (cards.length > 0) {
+      const preloadImages = async () => {
+        const imagePromises = cards.map((card) => {
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+            img.onload = resolve;
+            img.onerror = reject;
+            img.src = `http://localhost:5000/${card.image}`;
+          });
+        });
+
+        try {
+          await Promise.all(imagePromises);
+          setImagesLoaded(true);
+        } catch (error) {
+          console.error("Error preloading images:", error);
+        }
+      };
+
+      preloadImages();
+    }
+  }, [cards]);
+
+  // Show loading state while images are loading
+  if (!imagesLoaded) {
+    return (
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CircularProgress />
+      </Box>
+    );
+  }
+
   return (
     <Box sx={{ backgroundColor: "#334155", minHeight: "100vh", py: 4 }}>
       <Container maxWidth="lg">

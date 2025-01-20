@@ -1,6 +1,7 @@
 // const express = require('express');
 // const path = require('path');
 
+
 // const app = express();
 // const PORT = process.env.PORT || 3000;
 
@@ -17,6 +18,9 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+// Sharp for image optimization NEW
+const sharp = require('sharp');
+
 
 const app = express();
 const PORT = 5000;
@@ -30,11 +34,14 @@ app.use('/images', express.static(path.join(__dirname, 'images')));
 let cards = [];
 let matched = [];
 
-const initializeGame = () => {
+const initializeGame = async () => {
   const cardValues = Array.from({ length: 18 }, (_, i) => i + 1);
   const deck = [...cardValues, ...cardValues].sort(() => Math.random() - 0.5);
+
+  //First code
   // cards = deck.map((value, index) => ({ id: index, value, flipped: false }));
-  // matched = [];
+
+  // Second Code
   //Used pictures instead of numbers
   cards = deck.map((value, index) => ({
     id: index,
@@ -42,6 +49,24 @@ const initializeGame = () => {
     flipped: false,
     image: `images/card-${value}.jpg` // Assign an image to each card
   }));
+
+// new
+cards = await Promise.all(deck.map(async (value, index) => {
+  const optimizedImagePath = `images/optimised/card-${value}.jpg`;
+  
+  // Optimize image if it hasn't been optimized yet
+  await sharp(`images/card-${value}.jpg`)
+    .resize(300, 300) // Adjust size as needed
+    .jpeg({ quality: 70 }) // Reduce quality for better performance
+    .toFile(optimizedImagePath);
+    
+  return {
+    id: index,
+    value,
+    flipped: false,
+    image: `images/optimised/card-${value}.jpg`
+  };
+}));
   matched = [];
 };
 

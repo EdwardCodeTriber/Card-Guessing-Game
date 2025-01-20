@@ -11,7 +11,7 @@ const Game = () => {
   // Use effect to reset
   useEffect(() => {
     resetGame();
-  });
+  }, []);
 
   const resetGame = () => {
     const shuffledCards = shuffleCards();
