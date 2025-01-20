@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Grid, Button, Dialog, DialogTitle } from '@mui/material';
 import CardComponent from './CardComponent'; 
 
@@ -11,7 +11,7 @@ const Game = () => {
   // Use effect to reset
   useEffect(() => {
     resetGame();
-  }, []);
+  });
 
   const resetGame = () => {
     const shuffledCards = shuffleCards();

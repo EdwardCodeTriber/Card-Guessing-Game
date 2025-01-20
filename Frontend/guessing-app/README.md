@@ -10,7 +10,7 @@
 ## To run
 - node index.js
 # Frontend
-- cd frontend
+- cd frontend/guessing-app
 - npm install @mui/material @emotion/react @emotion/styled @mui/icons-material
 ## To run 
 - npm run dev
